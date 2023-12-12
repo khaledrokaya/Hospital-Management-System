@@ -6,7 +6,7 @@ This Hospital Management System is designed to streamline various aspects of hos
 
 ## Download Setup File
 
-To download the setup file for the Hospital Management System, visit [link-to-download](https://github.com/khaledrokaya/Hospital-Management-System/blob/main/setup.exe).
+To download the setup file for the Hospital Management System, click [here](https://github.com/khaledrokaya/Hospital-Management-System/raw/main/setup.exe) to start the download.
 
 
 ## Team Members
