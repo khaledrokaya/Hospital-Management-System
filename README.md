@@ -19,7 +19,7 @@ To download the setup file for the Hospital Management System, click [here](http
     - Working on the basic algorithms within the pages worked on
     - Collaborate with team members to ensure smooth integration.
 
-- **[Moahmed Shosha]**
+- **[Mohamed Shosha]**
   - **Role:** Adding employers in employee page
   - **Responsibilities:**
     - Comprehensive user interface design for a cohesive and easy-to-use experience.
