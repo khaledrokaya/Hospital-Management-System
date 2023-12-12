@@ -4,6 +4,11 @@
 
 This Hospital Management System is designed to streamline various aspects of hospital operations, including user authentication, patient management, and pharmacy functionalities. The system aims to enhance the efficiency of hospital processes and provide a user-friendly interface.
 
+## Download Setup File
+
+To download the setup file for the Hospital Management System, visit [link-to-download](https://github.com/khaledrokaya/Hospital-Management-System/edit/main/setup.exe).
+
+
 ## Team Members
 
 - **[Khaled Mostafa]**
