@@ -1,9 +1,9 @@
 import login_page as lg
 from login_page import ttk, tk, pd, messagebox
 
-icon_image = r"media\signup.ico"
-BG_image = r"media\main_page.gif"
-excel_file = r"data\login_data.xlsx"
+icon_image = r"media/signup.ico"
+BG_image = r"media/main_page.gif"
+excel_file = r"data/login_data.xlsx"
 
 
 class signup_page:
@@ -68,19 +68,26 @@ class signup_page:
                 return
         if not self.userPhone.get().isdigit():
             messagebox.showerror("Error", "Phone number should contain only digits.")
+            self.userPhone.delete(0, tk.END)
             return
         if not self.userID.get().isdigit():
             messagebox.showerror("Error", "ID should contain only digits.")
+            self.userID.delete(0, tk.END)
+            return
+        if not self.userPass.get().isdigit():
+            messagebox.showerror("Error", "Password should contain only digits.")
+            self.userPass.delete(0, tk.END)
             return
         if int(USER_DATA['ID']) in self.df['id'].values:
             messagebox.showerror("Error", "ID is exist already try again.")
+            self.userID.delete(0, tk.END)
             return
 
         # If all validation passes, open a confirmation window
         confirm = tk.Toplevel()
         confirm.config(bg="#ffffff")
         confirm.title("confirm")
-        confirm.geometry("250x130+550+230")
+        confirm.geometry(f"250x130+{(confirm.winfo_screenwidth()-250)//2}+{(confirm.winfo_screenheight()-130)//2}")
         tk.Label(confirm, text="Are You Sure?", font=("arial", 22, "bold"), justify="center", bg="#ffffff").pack(pady=10)
         tk.Button(confirm, text="Confirm", font=("arial", 20, "bold"), borderwidth=0, bg="#00A1D1", fg="white", width=7, activebackground="white", activeforeground="black", command=self.confirmData).place(x=0, y=70)
         tk.Button(confirm, text="Edit", font=("arial", 20, "bold"), borderwidth=0, bg="#00A1D1", fg="white", width=7, activebackground="white", activeforeground="black", command=confirm.destroy).place(x=125, y=70)

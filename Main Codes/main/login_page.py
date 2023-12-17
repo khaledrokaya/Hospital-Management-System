@@ -8,9 +8,9 @@ import employees_page as em
 import pharmacist_page as ph
 import reception_page as rc
 
-icon_image = r"media\login.ico"
-BG_image = r"media\main_page.gif"
-excel_file = r"data\login_data.xlsx"
+icon_image = r"media/login.ico"
+BG_image = r"media/main_page.gif"
+excel_file = r"data/login_data.xlsx"
 
 
 def load_or_create_excel_file():
@@ -47,7 +47,7 @@ class login_page:
         tk.Label(text="password: ", font=("arial", 15, "normal"), fg="black", bg="#ffffff").place(x=50, y=230)
 
         # Create login and signup buttons
-        tk.Button(self.login, text="Login", font=("arial", 20, "bold"), borderwidth=0, bg="#00A1D1", width=10, activebackground="#ffffff", activeforeground="black", command=self.validateId).place(x=50, y=310)
+        tk.Button(self.login, text="Login", font=("arial", 20, "bold"), borderwidth=0, bg="#00A1D1", width=10, activebackground="#ffffff", activeforeground="black", command=self.validateIDAndPass).place(x=50, y=310)
         tk.Button(self.login, text="Signup", font=("arial", 20, "bold"), borderwidth=0, bg="#00A1D1", width=10, activebackground="#ffffff", activeforeground="black", command=self.signupPage).place(x=360, y=310)
 
         # Create input fields for user ID and password
@@ -64,22 +64,24 @@ class login_page:
         self.newApp = sg.signup_page()
         self.newApp.signup_run()
 
-    # Method to validate user ID and initiate password validation
-    def validateId(self):
-        if len(self.userID.get()) < 14 or len(self.userID.get()) > 14:
-            messagebox.showwarning("Warning", "ID isn't valid. It should be at least 14 characters.")
+    # Method to validate the password and navigate to different pages based on the user's role
+    def validateIDAndPass(self):
+        if not self.userID.get().isdigit():
+            messagebox.showerror("Error", "ID should contain only digits.")
             self.userID.delete(0, tk.END)
-        elif int(self.userID.get()) not in self.df["id"].values:
+            return
+        if not self.password.get().isdigit():
+            messagebox.showerror("Error", "Password should contain only digits.")
+            self.password.delete(0, tk.END)
+            return
+        if int(self.userID.get()) not in self.df["id"].values:
             messagebox.showerror("Error", "ID Not Found.")
             self.userID.delete(0, tk.END)
-        else:
-            self.validatePass()
-
-    # Method to validate the password and navigate to different pages based on the user's role
-    def validatePass(self):
+            return
         if int(self.password.get()) not in self.df.loc[self.df["id"] == int(self.userID.get()), "password"].values:
             messagebox.showwarning("Warning", "password isn't correct. Try again, please.")
             self.password.delete(0, tk.END)
+            return
         else:
             if str(self.df.loc[self.df["id"] == int(self.userID.get()), "job"].values[0]) == "IT":
                 self.login.destroy()

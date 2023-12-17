@@ -21,8 +21,8 @@ class Reception:
         
         # creating two other frames inside the main frame
         self.headings_frame = tk.LabelFrame(self.main_frame, bg='#ffffff')
-        self.data_view_frame = tk.LabelFrame(self.main_frame,bg='#ffffff')
-        
+        self.data_view_frame = tk.LabelFrame(self.main_frame,bg='#ffffff', width=self.window.winfo_screenwidth(), height=self.window.winfo_screenheight()-80)
+
         # creating our labels, entries and buttons
         self.reception_label = tk.Label(self.main_frame,text="Welcome to the reception", bg='#ffffff', fg='#000000', font=("Arial", 30))
         self.date_label = tk.Label(self.headings_frame,text="date : " + datetime.now().strftime('%d/%m/%y'), bg='#FAF9F6', fg='#000000', font=("Arial", 10))
@@ -35,9 +35,9 @@ class Reception:
 
         # creating our treeview that will show the data of the patients and creating the headers of the columns
         cols = ("Patient Name","Patient ID","Phone Number","Birth Date","Height (cm)","Weight (kg)","Blood Type","Service","Checkup-type","Appointment","Governorate")
-        self.tree_view = ttk.Treeview(self.data_view_frame,show="headings",columns=cols,height=self.window.winfo_screenheight()-790)
+        self.tree_view = ttk.Treeview(self.data_view_frame,show="headings",columns=cols,height=self.window.winfo_screenheight()-80)
         self.tree_view.grid(row=0,column=0)
-        
+
         # modifying the width of each column of the treeview
         self.tree_view.column("Patient Name",width=130)
         self.tree_view.column("Phone Number",width=100)

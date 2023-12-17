@@ -3,7 +3,7 @@ import tkinter as tk
 from tkinter import ttk, messagebox
 import pandas as pd
 
-excel_file = r"data\employee_data.xlsx"
+excel_file = r"data/employee_data.xlsx"
 
 
 class employee_page:
@@ -12,7 +12,7 @@ class employee_page:
         self.employee = tk.Tk()
         self.employee.geometry(f"500x400+{(self.employee.winfo_screenwidth()-500)//2}+{(self.employee.winfo_screenheight()-475)//2}")
         self.employee.title("Admin Manager")
-        self.employee.iconbitmap(r"media\employee.ico")
+        self.employee.iconbitmap(r"media/employee.ico")
         self.employee.resizable(False, False)
         self.employee.configure(background="white")
         self.create_or_load_employee_data()
@@ -31,7 +31,7 @@ class employee_page:
         self.employees = tk.Tk()
         self.employees.geometry(f"1000x700+{(self.employees.winfo_screenwidth()-1000)//2}+{(self.employees.winfo_screenheight()-775)//2}")
         self.employees.title("Admin Manager")
-        self.employees.iconbitmap(r"media\employee.ico")
+        self.employees.iconbitmap(r"media/employee.ico")
         self.employees.configure(bg="white")
         self.employees.resizable(False, False)
         tk.Label(self.employees, text="Employee management system", bg="#0992F6", fg="white", font=("arial", 30, "bold"), width="500",

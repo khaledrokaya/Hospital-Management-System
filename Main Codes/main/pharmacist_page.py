@@ -61,6 +61,9 @@ class PharmacyApp:
         vsb_customer = tk.Scrollbar(customer_tree_frame, orient="vertical", command=self.customer_tree.yview)
         vsb_customer.pack(side=tk.LEFT, fill='y')
         self.customer_tree.configure(yscrollcommand=vsb_customer.set)
+        hsb_customer = tk.Scrollbar(customer_tree_frame, orient="horizontal", command=self.customer_tree.xview)
+        hsb_customer.pack(side=tk.BOTTOM, fill='x')
+        self.customer_tree.configure(xscrollcommand=hsb_customer.set)
 
         # Load data from Excel file into Treeview
         self.load_customer_data()

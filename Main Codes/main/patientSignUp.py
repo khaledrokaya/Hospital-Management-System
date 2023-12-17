@@ -156,7 +156,7 @@ class PatientSignUp:
             appointment = self.booking_date.get()
             governate = self.governorate_combobox.get()
 
-            path = r"data\patient_data.xlsx"
+            path = r"data/patient_data.xlsx"
             workbook = openpyxl.load_workbook(path)
             sheet = workbook.active
             row_values = [patient_name,patient_id,patient_phone,birth_date,height,weight,blood_type,service,checkup,appointment,governate]
@@ -178,7 +178,7 @@ class PatientSignUp:
     def exist_id(self, ID):
         ID = self.ID_entry.get()
         
-        path = r"data\patient_data.xlsx"
+        path = r"data/patient_data.xlsx"
         workbook = openpyxl.load_workbook(path)
         sheet = workbook.active
         patient_found = False
